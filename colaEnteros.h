@@ -23,10 +23,11 @@
 	 tipoElementoCola Velocidad;
 	 tipoElementoCola Estamina;
 	 tipoElementoCola Valor;
+     char clase [2];
  }jugador;
  
 typedef struct celdaC{
- 	jugador* jg; 
+ 	jugador jg; 
  	struct celdaC *sig;
  } celdaCola; 
 typedef struct tipoC{
@@ -36,10 +37,10 @@ typedef struct tipoC{
 
 void nuevaCola(tipoCola *);
 
-void encolar(tipoCola *, int jugador [8]);
+void encolar(tipoCola *, int jugador [8], char cl [2]);
 
 void desencolar(tipoCola *);
 
-tipoElementoCola frente(tipoCola);
+jugador frente(tipoCola);
 
 bool esNulaCola(tipoCola);
