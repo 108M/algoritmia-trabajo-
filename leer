@@ -32,20 +32,24 @@ int main(){
         }else{
             
            anterior = basura;
-           basura=fgetc(f);
+            basura=fgetc(f);
             
-           if (anterior == 'G' && basura = 'K') {
-		clase = 'GK';
-	  }
-	  else if(anterior == 'D' && basura = 'F') {
-		clase = 'DF'
-	  }
-	  else if (anterior == 'M' && basura = 'F') {
-		clase = 'MF';
-	  }
-	  else if(anterior == 'F' && basura = 'W') {
-		clase = 'FW'
-	  }
+            if (anterior == 'G' && basura == 'K') {
+				clase[0] = 'G';
+				clase[1] = 'K';
+			}
+			else if(anterior == 'D' && basura == 'F') {
+				clase[0] = 'D';
+				clase[1] = 'F';
+			}
+			else if (anterior == 'M' && basura == 'F') {
+				clase[0] = 'M';
+				clase[1] = 'F';
+			}
+			else if(anterior == 'F' && basura == 'W') {
+				clase[0] = 'F';
+				clase[1] = 'W';
+			}
         }
         
     }
