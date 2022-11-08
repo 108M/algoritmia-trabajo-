@@ -14,28 +14,28 @@ void errorCola(char s[]){
 }
 
 
-void encolar(tipoCola *c, int t [8]){
+void encolar(tipoCola *c, int t [8], char cl [2]){
 	celdaCola *n;
-	jugador *jg;
 	n = (celdaCola*)malloc(sizeof(celdaCola));
-    jg = (jugador*)malloc(sizeof(jugador));
-	n->jg->FP = t[0];
-	printf("%d",n->jg->FP);
-    n->jg->TP = t[1];
-    n->jg->Patada = t[2];
-    n->jg->Cuerpo = t[3];
-    n->jg->Control = t[4];
-    n->jg->Guardia = t[5];
-    n->jg->Velocidad = t[6];
-    n->jg->Estamina = t[7];
-    n->jg->Valor = t[8];
-
+    n->jg.FP = t[0];
+    n->jg.TP = t[1];
+    n->jg.Patada = t[2];
+    n->jg.Cuerpo = t[3];
+    n->jg.Control = t[4];
+    n->jg.Guardia = t[5];
+    n->jg.Velocidad = t[6];
+    n->jg.Estamina = t[7];
+    n->jg.Valor = t[8];
+    n->jg.clase[0] = cl [0];
+    n->jg.clase[1] = cl [1];
+    
     
 	if(esNulaCola(*c)){
 		printf("la cola es nula asique inserto n \n");
 		c->ini = n;
 	}
 	else{
+        printf("la cola  no es nula asique inserto despues de n \n");
 		c->fin->sig = n;
 	}
 	c->fin = n;
@@ -56,17 +56,15 @@ void desencolar(tipoCola *c){
 	}
 	free(aux);
 }
-
-tipoElementoCola frente (tipoCola c){
+jugador frente (tipoCola c){
 	if(esNulaCola(c)){
 		errorCola("No hay primero en una cola vacia");
 	}
 	else{
-		return (c.ini)->jg->FP ;
+		return (c.ini)->jg ;
 	}
 }
 
 bool esNulaCola(tipoCola c){
-	printf("compruebo que la cola es nula\n");
 	return (c.ini == NULL);
 }
